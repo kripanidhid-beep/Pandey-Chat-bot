@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  telegram-bot:
+    build: .
+    container_name: telegram-auto-reply-bot
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_IDS=${ADMIN_IDS}
